@@ -1,10 +1,10 @@
-+++
+---
 title = "npm-script中的&&和&一个问题"
 date = 2019-01-20T22:53:31+08:00
 tags = ["node","npm"]
 draft = false
 description = "npm script中命令行&&与&的区别"
-+++
+---
 
 ## 结论先上
 
