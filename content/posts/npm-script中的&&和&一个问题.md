@@ -124,7 +124,7 @@ package.json
 
 神奇的事情发生了！！！
 
-![p1](/images/npm-script-p1.gif)
+![p1](../../static/images/npm-script-p1.gif)
 
 ``` shell
 node index1.js & node index2.js && node index3.js
