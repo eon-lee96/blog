@@ -44,7 +44,7 @@ sudo lsof -i ':80' |grep 'LISTEN'
         }
 }
 ```
-nginx的详细配置方式自行[官网](https://nginx.org/en/docs/)学习，不能面向互联网搜索编程哦～
+nginx的详细配置方式自行[官网](https://nginx.org/en/docs/)学习，不能面向搜索引擎～
 
 ### 启动nginx
 
