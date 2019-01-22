@@ -25,7 +25,7 @@
 安装 nginx 首先你要有个nginx，直接brew安装就好，没有brew那就戳这里。
 修改nginx配置 默认brew安装好后nginx的配置文件存放在
 /usr/local/etc/nginx/nginx.conf 默认是监听8080端口的，改成80后将所有请求proxy_pass到你想要的端口。
-server { listen 80; server_name localhost; location / { proxy_pass http://127.0.0.1:8080; # 下面两句如果有用到ws:// websocket的话就加上 proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection &amp;#34;upgrade&amp;#34;; } } nginx的详细配置方式自行官网学习，不能面向互联网搜索编程哦～
+server { listen 80; server_name localhost; location / { proxy_pass http://127.0.0.1:8080; # 下面两句如果有用到ws:// websocket的话就加上 proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection &amp;#34;upgrade&amp;#34;; } } nginx的详细配置方式自行官网学习，不能面向搜索引擎编程哦～
 启动nginx 因为监听了80端口，启动当然需要sudo
 sudo nginx 这样做就能让访问本机80端口的转到8080端口，但，仅限本机访问本机，如果是局域网内其他机器要访问，是会失败的，因为防火墙的存在。
 最开始我想着要不关掉防火墙算了，但是存在必定有其道理，想想还是再搜索下折腾下吧，后来找到了一个办法：
