@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "/"
+baseurl = "https://blog.lee1hang.com"
 languageCode = "zh-cn"
 title = "leeEhang的个人博客"
 theme = "hugo-theme-cactus-plus"
