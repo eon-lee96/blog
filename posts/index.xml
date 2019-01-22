@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on leeEhang的个人博客</title>
-    <link>/posts/</link>
+    <link>https://blog.lee1hang.com/posts/</link>
     <description>Recent content in Posts on leeEhang的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 21 Jan 2019 14:18:25 +0800</lastBuildDate>
     
-	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.lee1hang.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mac80端口问题</title>
-      <link>/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.lee1hang.com/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 21 Jan 2019 14:18:25 +0800</pubDate>
       
-      <guid>/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.lee1hang.com/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</guid>
       <description>解除占用 macOS的1024以下端口都是不能直接使用的，如果要用得先排出是否已经有进程使用了某个端口：
 # 查看80端口的占用情况 sudo lsof -i &amp;#39;:80&amp;#39; |grep &amp;#39;LISTEN&amp;#39; 获取到pid后kill掉。
 代理转发80端口 实际上在我的机器上默认是没有任何进程在使用80端口的，仍需要sudo是因为macOS对1024以下端口的保护。
@@ -36,10 +36,10 @@ sudo nginx -g &amp;#34;daemon off;&amp;#34; 当然啦，这样只运行实在前
     
     <item>
       <title>npm-script中的&amp;&amp;和&amp;一个问题</title>
-      <link>/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.lee1hang.com/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 20 Jan 2019 22:53:31 +0800</pubDate>
       
-      <guid>/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.lee1hang.com/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</guid>
       <description>结论先上 在bash命令/npm script中使用&amp;amp;来实现并发效果时，实际上是把&amp;amp;左侧的命令丢入后台运行，右侧剩余命令看做 整体 任务在前台运行，以此来实现并发效果。
 而&amp;amp;&amp;amp;是串行执行两侧命令，先执行完左侧时候再执行右侧。
 切记！！！
@@ -65,10 +65,10 @@ console.log(&amp;#39;start index1&amp;#39;); setTimeout(() =&amp;gt; { console.<
     
     <item>
       <title>前端复习——立即调用函数表达式(IIFE)</title>
-      <link>/posts/%E5%89%8D%E7%AB%AF%E5%A4%8D%E4%B9%A0%E7%AB%8B%E5%8D%B3%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8Fiife/</link>
+      <link>https://blog.lee1hang.com/posts/%E5%89%8D%E7%AB%AF%E5%A4%8D%E4%B9%A0%E7%AB%8B%E5%8D%B3%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8Fiife/</link>
       <pubDate>Sun, 20 Jan 2019 22:53:31 +0800</pubDate>
       
-      <guid>/posts/%E5%89%8D%E7%AB%AF%E5%A4%8D%E4%B9%A0%E7%AB%8B%E5%8D%B3%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8Fiife/</guid>
+      <guid>https://blog.lee1hang.com/posts/%E5%89%8D%E7%AB%AF%E5%A4%8D%E4%B9%A0%E7%AB%8B%E5%8D%B3%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8Fiife/</guid>
       <description>概念理解 所谓立即执行函数表达式就是用来表达一个可以立即执行的函数的式子。
 一个函数只要声明后显式写上调用语句即可立即执行。
 如:
