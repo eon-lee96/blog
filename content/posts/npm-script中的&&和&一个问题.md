@@ -1,4 +1,10 @@
-# npm-script中的&&和&一个问题
++++
+title = "npm-script中的&&和&一个问题"
+date = 2019-01-20T22:53:31+08:00
+tags = ["node","npm"]
+draft = false
+description = "npm script中命令行&&与&的区别"
++++
 
 ## 结论先上
 
@@ -118,7 +124,7 @@ package.json
 
 神奇的事情发生了！！！
 
-![p1](../../static/images/npm-script-p1.gif)
+![p1](/images/npm-script-p1.gif)
 
 ``` shell
 node index1.js & node index2.js && node index3.js

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="leeEhang">
+		<meta name="description" content="leeEhang的个人博客">
+		<meta name="generator" content="Hugo 0.54-DEV" />
+		<title>Mac80端口问题 &middot; leeEhang的个人博客</title>
+		<link rel="shortcut icon" href="your_site_url_addressimages/favicon.ico">
+		<link rel="stylesheet" href="your_site_url_addresscss/style.css">
+		
+
+		
+		<link rel="stylesheet" href="your_site_url_addresscss/font-awesome.min.css">
+		
+
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		
+		<a href='your_site_url_address'> <span class="arrow">←</span>首页</a>
+	
+	
+	<a href='your_site_url_addressposts'>归档</a>
+	<a href='your_site_url_addresstags'>标签</a>
+
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Mac80端口问题
+                    </h1>
+                    <h2 class="headline">
+                    2019-01-21
+                    · 61 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="your_site_url_addresstags/mac">mac</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#解除占用">解除占用</a></li>
+<li><a href="#代理转发80端口">代理转发80端口</a>
+<ul>
+<li><a href="#安装-nginx">安装 nginx</a></li>
+<li><a href="#修改nginx配置">修改nginx配置</a></li>
+<li><a href="#启动nginx">启动nginx</a></li>
+<li><a href="#开机启动">开机启动</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    
+
+<h2 id="解除占用">解除占用</h2>
+
+<p><code>macOS</code>的1024以下端口都是不能直接使用的，如果要用得先排出是否已经有进程使用了某个端口：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#6272a4"># 查看80端口的占用情况</span>
+sudo lsof -i <span style="color:#f1fa8c">&#39;:80&#39;</span> |grep <span style="color:#f1fa8c">&#39;LISTEN&#39;</span></code></pre></div>
+<p>获取到<code>pid</code>后<code>kill</code>掉。</p>
+
+<h2 id="代理转发80端口">代理转发80端口</h2>
+
+<p>实际上在我的机器上默认是没有任何进程在使用80端口的，仍需要<code>sudo</code>是因为<code>macOS</code>对1024以下端口的保护。</p>
+
+<p>查阅网上很多资料，都说只能通过将所有访问80端口的请求转发到可用端口（例如8080）。</p>
+
+<p>转发的方法有使用<code>pfctl</code>的，也有用<code>nginx</code>作代理转发的，两种我都试过。考虑到配置的方便(macOS 10以上要处理pfctl没那么容易)，还有对系统的修改，最后决定使用<code>nginx</code>做代理解决。</p>
+
+<h3 id="安装-nginx">安装 nginx</h3>
+
+<p>首先你要有个<code>nginx</code>，直接<code>brew</code>安装就好，没有<code>brew</code>那就<a href="https://brew.sh/index_zh-cn">戳这里</a>。</p>
+
+<h3 id="修改nginx配置">修改nginx配置</h3>
+
+<p>默认<code>brew</code>安装好后<code>nginx</code>的配置文件存放在</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">/usr/local/etc/nginx/nginx.conf</pre></div>
+<p>默认是监听8080端口的，改成80后将所有请求<code>proxy_pass</code>到你想要的端口。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"> server <span style="color:#ff79c6">{</span>
+        listen       <span style="color:#bd93f9">80</span>;
+        server_name  localhost;
+        location / <span style="color:#ff79c6">{</span>
+            proxy_pass   http://127.0.0.1:8080;
+            <span style="color:#6272a4"># 下面两句如果有用到ws:// websocket的话就加上</span>
+            proxy_set_header Upgrade <span style="color:#8be9fd;font-style:italic">$http_upgrade</span>;
+            proxy_set_header Connection <span style="color:#f1fa8c">&#34;upgrade&#34;</span>;
+        <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span></code></pre></div>
+<p>nginx的详细配置方式自行<a href="https://nginx.org/en/docs/">官网</a>学习，不能面向互联网搜索编程哦～</p>
+
+<h3 id="启动nginx">启动nginx</h3>
+
+<p>因为监听了80端口，启动当然需要<code>sudo</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo nginx</code></pre></div>
+<p>这样做就能让访问本机80端口的转到8080端口，但，仅限本机访问本机，如果是局域网内其他机器要访问，是会失败的，因为防火墙的存在。</p>
+
+<p>最开始我想着要不关掉防火墙算了，但是存在必定有其道理，想想还是再搜索下折腾下吧，后来找到了一个办法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo nginx -g <span style="color:#f1fa8c">&#34;daemon off;&#34;</span></code></pre></div>
+<p>当然啦，这样只运行实在前台运行的，要走到后台那就<code>nohup</code>加<code>&amp;</code>处理下。</p>
+
+<h3 id="开机启动">开机启动</h3>
+
+<p>这种做法是要自己在终端运行的，如果不想每次重开机就做一次就要自己设置开机启动啦。</p>
+
+<p>最简便的方式就是把这个命令写成以脚本，开机执行就是了。可以参考<a href="http://makaiqian.com/setting-boot/">这里</a></p>
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/leeEhang">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> leeEhang
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="your_site_url_addressjs/jquery-3.3.1.min.js"></script>
+<script src="your_site_url_addressjs/main.js"></script>
+
+
+
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Node on leeEhang的个人博客</title>
+    <link>your_site_url_address/tags/node/</link>
+    <description>Recent content in Node on leeEhang的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 20 Jan 2019 22:53:31 +0800</lastBuildDate>
+    
+	<atom:link href="your_site_url_address/tags/node/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>npm-script中的&amp;&amp;和&amp;一个问题</title>
+      <link>your_site_url_address/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sun, 20 Jan 2019 22:53:31 +0800</pubDate>
+      
+      <guid>your_site_url_address/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</guid>
+      <description>结论先上 在bash命令/npm script中使用&amp;amp;来实现并发效果时，实际上是把&amp;amp;左侧的命令丢入后台运行，右侧剩余命令看做 整体 任务在前台运行，以此来实现并发效果。
+而&amp;amp;&amp;amp;是串行执行两侧命令，先执行完左侧时候再执行右侧。
+切记！！！
+command1 &amp;amp; command2 &amp;amp;&amp;amp; command3 并不是并发执行command1和command2后再执行command3
+而是并发执行command1和command2 &amp;amp;&amp;amp; command3
+过程 最近，我组在远端构建组内sdk时踩了个坑！！！原先我们是ci构建好sdk，推送到服务器上，发现经常会出现推过去的zip包文件不全，或者文件全了但是文件的内容不全。很是神奇。
+排查一番后发现，我们package.json中的scripts写了个大概如下的命令
+cross-env npm run build-core &amp;amp; npm run build-ui 并把这个命令用 npm run build 代替。
+嗯~看着没问题，并行的构建sdk-core以及sdk-ui。
+构建好后就应该是打包，我们却在ci里面写了个“致命”的命令
+npm run build &amp;amp;&amp;amp; node publish.js publish.js就是我们用来发布到的脚本文件。看上去也是没问题。。但是细想一下，整个命令就变成了这样
+cross-env npm run build-core &amp;amp; npm run build-ui &amp;amp;&amp;amp; node publish.js 这里就踩到了一个坑！！！！
+我们原来是想先并行的构建ui与core，完成后执行上传脚本。。但是这里却变成了并行执行下面两件事
+1. 构建core 2. 构建ui和发布 这里我们可以粗略地理解为&amp;amp;&amp;amp;的优先级更高所以导致了这种现象。
+但其实是bash中&amp;amp;命令的特殊性导致的，前面我对“并行”做了特殊高亮，是因为表现上是并行的，但是&amp;amp;命令的含义并不是并行的执行任务。
+&amp;amp;命令的真实含义是把左侧的任务立即进入后台执行，这样就是实现了&amp;amp;两侧任务同时并发执行的效果，实际上会导致上面说的不符合期望的原因并不是因为优先级问题，按我们的理解&amp;amp;作为运算符的话优先级是高于&amp;amp;&amp;amp;的，之所以会造成上面的原因是因为命令按顺序执行的话，&amp;amp;使得左侧任务瞬间进入后台执行，右侧剩余命令就看做一个整体任务了。
+show demo code地址
+准备好4个文件index1.js,index2.js,index3.js以及package.json。
+内容分别如下
+index1.js
+console.log(&amp;#39;start index1&amp;#39;); setTimeout(() =&amp;gt; { console.</description>
+    </item>
+    
+  </channel>
+</rss>
