@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "your_site_url_address"
+baseurl = "/"
 languageCode = "zh-cn"
 title = "leeEhang的个人博客"
 theme = "hugo-theme-cactus-plus"
@@ -23,7 +23,7 @@ pygmentscodefencesguesssyntax = true
 	enableToc = true
 
 	enableDisqus = false
-	disqusShortname = "your_disqus_short_name"
+	# disqusShortname = "your_disqus_short_name"
 
 
 	enableSummary = true
