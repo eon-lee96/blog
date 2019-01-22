@@ -4,3 +4,13 @@ git:
     depth: 1
 install: go get -v github.com/gohugoio/hugo
 script: hugo
+
+depoly:
+    provider: pages
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    keep-history: true
+    target-banch: gh-pagehs
+    local-dir: public
+    on:
+        branch: pages
