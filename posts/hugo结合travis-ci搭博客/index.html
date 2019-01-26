@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="leeEhang">
+		<meta name="description" content="leeEhang的个人博客">
+		<meta name="generator" content="Hugo 0.54-DEV" />
+		<title>Hugo结合travis-ci搭博客 &middot; leeEhang的个人博客</title>
+		<link rel="shortcut icon" href="https://blog.lee1hang.com/images/favicon.ico">
+		<link rel="stylesheet" href="https://blog.lee1hang.com/css/style.css">
+		
+
+		
+		<link rel="stylesheet" href="https://blog.lee1hang.com/css/font-awesome.min.css">
+		
+
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		
+		<a href='https://blog.lee1hang.com/'> <span class="arrow">←</span>首页</a>
+	
+	
+	<a href='https://blog.lee1hang.com/posts'>归档</a>
+	<a href='https://blog.lee1hang.com/tags'>标签</a>
+
+
+	
+
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Hugo结合travis-ci搭博客
+                    </h1>
+                    <h2 class="headline">
+                    2019-01-26
+                    · 180 words
+                    · 1 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://blog.lee1hang.com/tags/%E5%85%B6%E4%BB%96">其他</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                  
+                    <div id="toc">
+                      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#hugo">Hugo</a>
+<ul>
+<li>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#创建站点">创建站点</a></li>
+<li><a href="#安装主题">安装主题</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#github">github</a>
+<ul>
+<li><a href="#travis-yml">travis.yml</a></li>
+<li><a href="#token获取">TOKEN获取</a></li>
+</ul></li>
+<li><a href="#travis-ci">travis-ci</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                  
+                
+                <section id="post-body">
+                    
+
+<h2 id="前言">前言</h2>
+
+<p>博客引擎来来去去换了很多个，从最开始<a href="https://wordpress.org/">wordpress</a>，到<a href="https://hexo.io/zh-cn/">hexo</a>、<a href="https://chris-diana.com/cms.js/">cmsjs</a>。最开始都是在自己的墙外服务器搭，但实际上也没怎么写文章，而且小水管也用着不爽。</p>
+
+<p>为了加强自己写博客的欲望，现在改用<a href="https://gohugo.io/">hugo</a>了，好吧我承认跟写博客没关系，只是想折腾一下。除了用<a href="https://gohugo.io/">hugo</a>之外还打算同步维护一个<a href="https://github.com/leeEhang/blog">repo</a>来写<code>issue-blog</code>。</p>
+
+<p>记录一下<code>hugo</code>结合<code>travis-ci</code>部署到<code>GitHub-pages</code>的过程。</p>
+
+<h2 id="hugo">Hugo</h2>
+
+<h4 id="安装">安装</h4>
+
+<p>具体系统安装方式参考<a href="https://gohugo.io/getting-started/installing/">官方文档</a>。</p>
+
+<p>我用的是mac就直接用<a href="https://brew.sh/">homebrew</a>，来安装</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install hugo</code></pre></div>
+<h4 id="创建站点">创建站点</h4>
+
+<p>直接执行如下命令创建一个站点文件夹：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo new site blog</code></pre></div>
+<p>正常来说会出现下面一段：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Congratulations! Your new Hugo site is created in 你的路径.
+
+Just a few more steps and you&#39;re ready to go:
+
+<span style="color:#bd93f9">1</span>. Download a theme into the same-named folder.
+   Choose a theme from https://themes.gohugo.io/, or
+   create your own with the <span style="color:#f1fa8c">&#34;hugo new theme &lt;THEMENAME&gt;&#34;</span> command.
+<span style="color:#bd93f9">2</span>. Perhaps you want to add some content. You can add single files
+   with <span style="color:#f1fa8c">&#34;hugo new &lt;SECTIONNAME&gt;/&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;</span>.
+<span style="color:#bd93f9">3</span>. Start the built-in live server via <span style="color:#f1fa8c">&#34;hugo server&#34;</span>.
+
+Visit https://gohugo.io/ <span style="color:#ff79c6">for</span> quickstart guide and full documentation.</code></pre></div>
+<p>就是告诉你还得下载个主题才能跑起来，到<a href="https://themes.gohugo.io/">hugo主题站</a>下载个主题安装就好。</p>
+
+<h4 id="安装主题">安装主题</h4>
+
+<p>有两种方式安装主题，一种是直接把仓库克隆下来当做博客仓库的一部分，一种是利用<a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git-Submodules</a>，后面一种目前知识浅薄不太熟悉就没用了，我就直接进入前面说的创建的<code>blog</code>站点目录下的<code>themes</code>目录下把我想要的主题clone下来。然后删掉主题内的<code>.git</code>文件夹。</p>
+
+<p>主题弄好后直接</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server</code></pre></div>
+<p>就可以把博客跑起来了。</p>
+
+<p>当然跑起来后是没有内容的，具体创建文章的方法需要结合主题参考<a href="https://gohugo.io/commands/hugo_new/">文档</a>。</p>
+
+<p><a href="https://gohugo.io">hugo</a>的使用方式具体参考官方文档就好了。</p>
+
+<p>当时有一点需要注意的就是图片目录，可以把图片放在<code>static</code>下，然后在<code>content</code>里面的<code>markdown</code>内就可以直接把<code>static</code>当做根目录来寻址</p>
+
+<h2 id="github">github</h2>
+
+<h3 id="travis-yml">travis.yml</h3>
+
+<p>弄好博客后就要上传到<code>github</code>了，但是我们得先配置一下<code>travis-ci</code>配置文件。</p>
+
+<p>创建一个<code>.travis.yml</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">sudo: <span style="color:#ff79c6">false</span>
+language: go
+git:
+    depth: <span style="color:#bd93f9">1</span>
+<span style="color:#6272a4"># 安装hugo</span>
+install: go get -v github.com/gohugoio/hugo
+<span style="color:#6272a4"># 执行脚本,hugo构建站点</span>
+script:
+    - hugo
+
+<span style="color:#6272a4"># 部署配置</span>
+deploy:
+  <span style="color:#6272a4"># 使用gitbuh-pages</span>
+  provider: pages
+  skip-cleanup: <span style="color:#ff79c6">true</span>
+  <span style="color:#6272a4"># 部署的文件夹，这里是hugo构建的public文件夹</span>
+  local-dir: public
+  <span style="color:#6272a4"># github开发者TOKEN，得有这个travis才能操作repo</span>
+  github-token: $GITHUB_TOKEN
+  keep-history: <span style="color:#ff79c6">true</span>
+  <span style="color:#6272a4"># 部署目标分支，把产物部署到仓库的具体某个分支</span>
+  target-branch: gh-pages
+  <span style="color:#6272a4"># github-pages的自定义域名，会自动创建CNAME文件</span>
+  fqdn: blog.lee1hang.com
+  on:
+  	<span style="color:#6272a4"># 在仓库的哪个分支上构建，默认是master，如果设置了请注意把hugo站点传到定义的分之下</span>
+    branch: page</code></pre></div>
+<h3 id="token获取">TOKEN获取</h3>
+
+<p>在个人的<code>github</code>设置里面找到<code>developer settings</code></p>
+
+<p><img src="/images/hugo4.png" alt="WX20190126-194657@2x" /></p>
+
+<p>然后在<code>personal access tonkes</code>里点击<code>generate new token</code></p>
+
+<p><img src="/images/hugo3.png" alt="WX20190126-194810@2x" /></p>
+
+<p>在出来的页面填写描述后，最少需要勾选<code>public_repo</code>的权限。</p>
+
+<p><img src="/images/hugo2.png" alt="WX20190126-195200@2x" /></p>
+
+<p>之后可以创建了<code>token</code>,需要注意的是要妥善保存<code>token</code>，因为创建成功后的展示<code>token</code>的页面只会出现一次。</p>
+
+<h2 id="travis-ci">travis-ci</h2>
+
+<p>首先使用<code>github</code>账号登录到<a href="https://travis-ci.org/">travis-ci</a>，同步账户信息后就可以在面板上看到仓库列表。选择之前我们创建的仓库进入设置面板。</p>
+
+<p><img src="/images/hugo1.png" alt="WX20190126-201803@2x" /></p>
+
+<p>注意填写之前保存的<code>token</code>，<code>NAME</code>要跟之前在<code>travis.yml</code>内定义的参数名一致（注意不要写上<code>$</code>），方便起见也可以勾选<code>display value in build log</code>。</p>
+
+<p>之后我们可以触发一下<code>trigger build</code>看能不能正常构建。</p>
+
+<p>正常情况下，是可以的，然后整个过程就结束了。</p>
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://github.com/leeEhang">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+       © Copyright 2019 <i class="fa fa-heart" aria-hidden="true"></i> leeEhang
+    
+    </p>
+    <p class="small">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://blog.lee1hang.com/js/jquery-3.3.1.min.js"></script>
+<script src="https://blog.lee1hang.com/js/main.js"></script>
+
+
+
+
+
+
+
+
+    </body>
+</html>

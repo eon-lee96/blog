@@ -6,10 +6,26 @@
     <description>Recent content on leeEhang的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 21 Jan 2019 14:18:25 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 26 Jan 2019 20:27:58 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.lee1hang.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo结合travis-ci搭博客</title>
+      <link>https://blog.lee1hang.com/posts/hugo%E7%BB%93%E5%90%88travis-ci%E6%90%AD%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sat, 26 Jan 2019 20:27:58 +0800</pubDate>
+      
+      <guid>https://blog.lee1hang.com/posts/hugo%E7%BB%93%E5%90%88travis-ci%E6%90%AD%E5%8D%9A%E5%AE%A2/</guid>
+      <description>前言 博客引擎来来去去换了很多个，从最开始wordpress，到hexo、cmsjs。最开始都是在自己的墙外服务器搭，但实际上也没怎么写文章，而且小水管也用着不爽。
+为了加强自己写博客的欲望，现在改用hugo了，好吧我承认跟写博客没关系，只是想折腾一下。除了用hugo之外还打算同步维护一个repo来写issue-blog。
+记录一下hugo结合travis-ci部署到GitHub-pages的过程。
+Hugo 安装 具体系统安装方式参考官方文档。
+我用的是mac就直接用homebrew，来安装
+brew install hugo 创建站点 直接执行如下命令创建一个站点文件夹：
+hugo new site blog 正常来说会出现下面一段：
+Congratulations! Your new Hugo site is created in 你的路径. Just a few more steps and you&amp;#39;re ready to go: 1. Download a theme into the same-named folder. Choose a theme from https://themes.gohugo.io/, or create your own with the &amp;#34;hugo new theme &amp;lt;THEMENAME&amp;gt;&amp;#34; command. 2. Perhaps you want to add some content. You can add single files with &amp;#34;hugo new &amp;lt;SECTIONNAME&amp;gt;/&amp;lt;FILENAME&amp;gt;.</description>
+    </item>
     
     <item>
       <title>Mac80端口问题</title>
