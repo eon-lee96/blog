@@ -3,6 +3,7 @@ title = "Hugo结合travis-ci搭博客"
 date = 2019-01-26T20:27:58+08:00
 tags = ["其他"]
 draft = false
+description = "Hugo结合travis-ci搭博客"
 +++
 
 ## 前言
