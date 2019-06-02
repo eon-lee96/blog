@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>其他 on leeEhang的个人博客</title>
-    <link>https://blog.lee1hang.com/tags/%E5%85%B6%E4%BB%96/</link>
+    <link>https://blog.eon-lee.site/tags/%E5%85%B6%E4%BB%96/</link>
     <description>Recent content in 其他 on leeEhang的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 26 Jan 2019 20:27:58 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.lee1hang.com/tags/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.eon-lee.site/tags/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugo结合travis-ci搭博客</title>
-      <link>https://blog.lee1hang.com/posts/hugo%E7%BB%93%E5%90%88travis-ci%E6%90%AD%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://blog.eon-lee.site/posts/hugo%E7%BB%93%E5%90%88travis-ci%E6%90%AD%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sat, 26 Jan 2019 20:27:58 +0800</pubDate>
       
-      <guid>https://blog.lee1hang.com/posts/hugo%E7%BB%93%E5%90%88travis-ci%E6%90%AD%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://blog.eon-lee.site/posts/hugo%E7%BB%93%E5%90%88travis-ci%E6%90%AD%E5%8D%9A%E5%AE%A2/</guid>
       <description>前言 博客引擎来来去去换了很多个，从最开始wordpress，到hexo、cmsjs。最开始都是在自己的墙外服务器搭，但实际上也没怎么写文章，而且小水管也用着不爽。
 为了加强自己写博客的欲望，现在改用hugo了，好吧我承认跟写博客没关系，只是想折腾一下。除了用hugo之外还打算同步维护一个repo来写issue-blog。
 记录一下hugo结合travis-ci部署到GitHub-pages的过程。

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>leeEhang的个人博客</title>
-    <link>https://blog.lee1hang.com/</link>
+    <link>https://blog.eon-lee.site/</link>
     <description>Recent content on leeEhang的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 26 Jan 2019 20:27:58 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.lee1hang.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.eon-lee.site/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugo结合travis-ci搭博客</title>
-      <link>https://blog.lee1hang.com/posts/hugo%E7%BB%93%E5%90%88travis-ci%E6%90%AD%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://blog.eon-lee.site/posts/hugo%E7%BB%93%E5%90%88travis-ci%E6%90%AD%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sat, 26 Jan 2019 20:27:58 +0800</pubDate>
       
-      <guid>https://blog.lee1hang.com/posts/hugo%E7%BB%93%E5%90%88travis-ci%E6%90%AD%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://blog.eon-lee.site/posts/hugo%E7%BB%93%E5%90%88travis-ci%E6%90%AD%E5%8D%9A%E5%AE%A2/</guid>
       <description>前言 博客引擎来来去去换了很多个，从最开始wordpress，到hexo、cmsjs。最开始都是在自己的墙外服务器搭，但实际上也没怎么写文章，而且小水管也用着不爽。
 为了加强自己写博客的欲望，现在改用hugo了，好吧我承认跟写博客没关系，只是想折腾一下。除了用hugo之外还打算同步维护一个repo来写issue-blog。
 记录一下hugo结合travis-ci部署到GitHub-pages的过程。
@@ -29,10 +29,10 @@ Congratulations! Your new Hugo site is created in 你的路径. Just a few more 
     
     <item>
       <title>Mac80端口问题</title>
-      <link>https://blog.lee1hang.com/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.eon-lee.site/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 21 Jan 2019 14:18:25 +0800</pubDate>
       
-      <guid>https://blog.lee1hang.com/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.eon-lee.site/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</guid>
       <description>解除占用 macOS的1024以下端口都是不能直接使用的，如果要用得先排出是否已经有进程使用了某个端口：
 # 查看80端口的占用情况 sudo lsof -i &amp;#39;:80&amp;#39; |grep &amp;#39;LISTEN&amp;#39; 获取到pid后kill掉。
 代理转发80端口 实际上在我的机器上默认是没有任何进程在使用80端口的，仍需要sudo是因为macOS对1024以下端口的保护。
@@ -52,10 +52,10 @@ sudo nginx -g &amp;#34;daemon off;&amp;#34; 当然啦，这样只运行实在前
     
     <item>
       <title>npm-script中的&amp;&amp;和&amp;一个问题</title>
-      <link>https://blog.lee1hang.com/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.eon-lee.site/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 20 Jan 2019 22:53:31 +0800</pubDate>
       
-      <guid>https://blog.lee1hang.com/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.eon-lee.site/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</guid>
       <description>结论先上 在bash命令/npm script中使用&amp;amp;来实现并发效果时，实际上是把&amp;amp;左侧的命令丢入后台运行，右侧剩余命令看做 整体 任务在前台运行，以此来实现并发效果。
 而&amp;amp;&amp;amp;是串行执行两侧命令，先执行完左侧时候再执行右侧。
 切记！！！
@@ -81,10 +81,10 @@ console.log(&amp;#39;start index1&amp;#39;); setTimeout(() =&amp;gt; { console.<
     
     <item>
       <title>判断控制台是否开启(chrome)</title>
-      <link>https://blog.lee1hang.com/posts/%E5%88%A4%E6%96%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AFchrome/</link>
+      <link>https://blog.eon-lee.site/posts/%E5%88%A4%E6%96%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AFchrome/</link>
       <pubDate>Sun, 20 Jan 2019 22:53:31 +0800</pubDate>
       
-      <guid>https://blog.lee1hang.com/posts/%E5%88%A4%E6%96%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AFchrome/</guid>
+      <guid>https://blog.eon-lee.site/posts/%E5%88%A4%E6%96%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AFchrome/</guid>
       <description>最近在网上瞎逛看到stack overflow上的这个老话题Find out whether Chrome console is open 很有意思，就决定实践学习一下。
 判断控制台是否开启这种需求虽然没遇见过，但感觉还是有可能会遇到的，特别是做一些简单的安全限制，稍微的提高一下安全门槛。
 至于如何实现这个需求，大佬们也给出了解法
@@ -96,10 +96,10 @@ function checkOpen() {} checkOpen.toString = function() { this.opened = true; };
     
     <item>
       <title>前端复习——立即调用函数表达式(IIFE)</title>
-      <link>https://blog.lee1hang.com/posts/%E5%89%8D%E7%AB%AF%E5%A4%8D%E4%B9%A0%E7%AB%8B%E5%8D%B3%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8Fiife/</link>
+      <link>https://blog.eon-lee.site/posts/%E5%89%8D%E7%AB%AF%E5%A4%8D%E4%B9%A0%E7%AB%8B%E5%8D%B3%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8Fiife/</link>
       <pubDate>Sun, 20 Jan 2019 22:53:31 +0800</pubDate>
       
-      <guid>https://blog.lee1hang.com/posts/%E5%89%8D%E7%AB%AF%E5%A4%8D%E4%B9%A0%E7%AB%8B%E5%8D%B3%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8Fiife/</guid>
+      <guid>https://blog.eon-lee.site/posts/%E5%89%8D%E7%AB%AF%E5%A4%8D%E4%B9%A0%E7%AB%8B%E5%8D%B3%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8Fiife/</guid>
       <description>概念理解 所谓立即执行函数表达式就是用来表达一个可以立即执行的函数的式子。
 一个函数只要声明后显式写上调用语句即可立即执行。
 如:
