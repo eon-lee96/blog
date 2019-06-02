@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Npm on leeEhang的个人博客</title>
+    <title>npm on leeEhang的个人博客</title>
     <link>https://blog.lee1hang.com/tags/npm/</link>
-    <description>Recent content in Npm on leeEhang的个人博客</description>
+    <description>Recent content in npm on leeEhang的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 20 Jan 2019 22:53:31 +0800</lastBuildDate>
