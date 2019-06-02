@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Eon Lee的个人博客</title>
+    <link>https://blog.eon-lee.site/tags/javascript/</link>
+    <description>Recent content in javascript on Eon Lee的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 02 Jun 2019 20:08:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.eon-lee.site/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>判断控制台是否开启(chrome)</title>
+      <link>https://blog.eon-lee.site/posts/%E5%88%A4%E6%96%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AFchrome/</link>
+      <pubDate>Sun, 02 Jun 2019 20:08:23 +0800</pubDate>
+      
+      <guid>https://blog.eon-lee.site/posts/%E5%88%A4%E6%96%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AFchrome/</guid>
+      <description>最近在网上瞎逛看到stack overflow上的这个老话题Find out whether Chrome console is open 很有意思，就决定实践学习一下。
+判断控制台是否开启这种需求虽然没遇见过，但感觉还是有可能会遇到的，特别是做一些简单的安全限制，稍微的提高一下安全门槛。
+至于如何实现这个需求，大佬们也给出了解法
+var devtools = /./; devtools.toString = function() { this.opened = true; } console.log(&amp;#39;%c&amp;#39;, devtools); // devtools.opened will become true if/when the console is opened  经实验并不可行，我稍微改了下
+function checkOpen() {} checkOpen.toString = function() { this.opened = true; }; console.log(&amp;#34;%c&amp;#34;, checkOpen); // checkOpen.opened will become true if/when the console is opened  当然这样并不能很好的观察结果，所以我又加了些东西搞了个小demo codepen
+当开启控制台后会显示已开启
+原理学习 首先，这种方法其实是一个hack来的，涉及的知识点包括类型转换以及console.log api。 具体理解上就是首先先定义一个具名空函数checkOpen，然后覆写它的toString方法。 之后执行console.log(&#39;%c&#39;,checkOpen)。当console.log()遇上%c这个Substitution string时，第二个参数是字符串，因此当传入的是checkOpen这个function是就会进行类型转换，触发checkOpen的toString方法。当然这里也可以用console.</description>
+    </item>
+    
+  </channel>
+</rss>
