@@ -12,8 +12,8 @@ pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
 [params]
-	author = "leeEhang"
-	description = "leeEhang的个人博客"
+	author = "Eon Lee"
+	description = "Eon Lee的个人博客"
 	bio = "好好学习天天向上"
 
 	#twitter = "your_twitter_id"
@@ -78,4 +78,4 @@ pygmentscodefencesguesssyntax = true
 
 # Add additional social link entries underneath
 [social]
-	github-square = "https://github.com/leeEhang"
+	github-square = "https://github.com/eon-lee96"
