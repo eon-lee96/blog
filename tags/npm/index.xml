@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>npm on leeEhang的个人博客</title>
-    <link>https://blog.eon-lee.site/tags/npm/</link>
-    <description>Recent content in npm on leeEhang的个人博客</description>
+    <title>Npm on leeEhang的个人博客</title>
+    <link>your_site_url_address/tags/npm/</link>
+    <description>Recent content in Npm on leeEhang的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 20 Jan 2019 22:53:31 +0800</lastBuildDate>
     
-	<atom:link href="https://blog.eon-lee.site/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="your_site_url_address/tags/npm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>npm-script中的&amp;&amp;和&amp;一个问题</title>
-      <link>https://blog.eon-lee.site/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</link>
+      <link>your_site_url_address/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 20 Jan 2019 22:53:31 +0800</pubDate>
       
-      <guid>https://blog.eon-lee.site/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</guid>
+      <guid>your_site_url_address/posts/npm-script%E4%B8%AD%E7%9A%84%E5%92%8C%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</guid>
       <description>结论先上 在bash命令/npm script中使用&amp;amp;来实现并发效果时，实际上是把&amp;amp;左侧的命令丢入后台运行，右侧剩余命令看做 整体 任务在前台运行，以此来实现并发效果。
 而&amp;amp;&amp;amp;是串行执行两侧命令，先执行完左侧时候再执行右侧。
 切记！！！
