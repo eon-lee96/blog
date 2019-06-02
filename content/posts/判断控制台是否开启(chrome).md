@@ -26,7 +26,7 @@ console.log("%c", checkOpen);
 
 当然这样并不能很好的观察结果，所以我又加了些东西搞了个[小demo](https://learn.eon-lee.site/build/detect-console-open/)
 ![detect-devtool-open.gif](./images/detect-devtool-open.gif)
- https://codepen.io/3wellh/pen/OYoGNq
+[codepen](https://codepen.io/3wellh/pen/OYoGNq)
 
 当开启控制台后会显示已开启
 
