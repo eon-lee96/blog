@@ -1,6 +1,6 @@
 # blog
 
-hugo版本：[blog.lee1hang.com](https://blog.lee1hang.com)
+hugo版本：[blog.eon-lee.site](http://blog.eon-lee.site/)
 
 ## Post
 
