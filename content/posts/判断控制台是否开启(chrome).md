@@ -1,4 +1,11 @@
-# 判断控制台是否开启(chrome)
++++
+title = "判断控制台是否开启(chrome)"
+date = 2019-01-20T22:53:31+08:00
+tags = ["javascript"]
+draft = false
+description = "判断控制台是否开启(chrome)"
++++
+
 最近在网上瞎逛看到stack overflow上的这个老话题[ Find out whether Chrome console is open ](https://stackoverflow.com/questions/7798748/find-out-whether-chrome-console-is-open/30638226#30638226)很有意思，就决定实践学习一下。
 
 **判断控制台是否开启**这种需求虽然没遇见过，但感觉还是有可能会遇到的，特别是做一些简单的安全限制，稍微的提高一下安全门槛。
