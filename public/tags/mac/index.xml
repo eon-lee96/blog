@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mac on leeEhang的个人博客</title>
-    <link>your_site_url_address/tags/mac/</link>
-    <description>Recent content in Mac on leeEhang的个人博客</description>
+    <title>Mac on Eon Lee的个人博客</title>
+    <link>https://blog.eon-lee.site/tags/mac/</link>
+    <description>Recent content in Mac on Eon Lee的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 21 Jan 2019 14:18:25 +0800</lastBuildDate>
     
-	<atom:link href="your_site_url_address/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.eon-lee.site/tags/mac/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mac80端口问题</title>
-      <link>your_site_url_address/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</link>
+      <link>https://blog.eon-lee.site/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 21 Jan 2019 14:18:25 +0800</pubDate>
       
-      <guid>your_site_url_address/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://blog.eon-lee.site/posts/mac80%E7%AB%AF%E5%8F%A3%E9%97%AE%E9%A2%98/</guid>
       <description>解除占用 macOS的1024以下端口都是不能直接使用的，如果要用得先排出是否已经有进程使用了某个端口：
 # 查看80端口的占用情况 sudo lsof -i &amp;#39;:80&amp;#39; |grep &amp;#39;LISTEN&amp;#39; 获取到pid后kill掉。
 代理转发80端口 实际上在我的机器上默认是没有任何进程在使用80端口的，仍需要sudo是因为macOS对1024以下端口的保护。
@@ -25,7 +25,7 @@
 安装 nginx 首先你要有个nginx，直接brew安装就好，没有brew那就戳这里。
 修改nginx配置 默认brew安装好后nginx的配置文件存放在
 /usr/local/etc/nginx/nginx.conf 默认是监听8080端口的，改成80后将所有请求proxy_pass到你想要的端口。
-server { listen 80; server_name localhost; location / { proxy_pass http://127.0.0.1:8080; # 下面两句如果有用到ws:// websocket的话就加上 proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection &amp;#34;upgrade&amp;#34;; } } nginx的详细配置方式自行官网学习，不能面向互联网搜索编程哦～
+server { listen 80; server_name localhost; location / { proxy_pass http://127.0.0.1:8080; # 下面两句如果有用到ws:// websocket的话就加上 proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection &amp;#34;upgrade&amp;#34;; } } nginx的详细配置方式自行官网学习，不能面向搜索引擎编程哦～
 启动nginx 因为监听了80端口，启动当然需要sudo
 sudo nginx 这样做就能让访问本机80端口的转到8080端口，但，仅限本机访问本机，如果是局域网内其他机器要访问，是会失败的，因为防火墙的存在。
 最开始我想着要不关掉防火墙算了，但是存在必定有其道理，想想还是再搜索下折腾下吧，后来找到了一个办法：
